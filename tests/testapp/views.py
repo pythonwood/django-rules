@@ -12,6 +12,9 @@ from .models import Book
 class BookMixin(object):
     def get_object(self):
         return Book.objects.get(pk=self.kwargs['book_id'])
+    # or just one line: model = Book
+    def get_queryset(self):
+        return Book.objects.all()
 
 
 class BookMixinWithError(object):
